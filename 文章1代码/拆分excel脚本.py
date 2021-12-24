@@ -3,14 +3,21 @@ import xlwt
 from pathlib import Path, PurePath
 
 # 工资单文件
-salary_file = 'python_productivity/文章1代码/工资单/工资单.xlsx'
+salary_file = 'python_productivity\文章1代码\工资单\工资单.xlsx'
 # 拆分文件保存路径
-dst_path = 'python_productivity/文章1代码/拆分/工资单'
+dst_path = 'python_productivity\文章1代码\工资单\拆分'
 
 data = xlrd.open_workbook(salary_file)
+
+
 table = data.sheets()[0]
+
+
 # 取得表头
 salary_header = table.row_values(rowx=0, start_colx=0, end_colx=None) 
+
+print('表头')
+print(salary_header)
 
 # 定义写入文件的函数
 def write_to_file(filename, cnt):
@@ -28,8 +35,10 @@ def write_to_file(filename, cnt):
             xlsheet.write(row, col, cell)
             col += 1
         row += 1
+# PurePath函数 获取文件所在路径
+#    workbook.save(PurePath(salary_file).with_name(filename).with_suffix('.xlsx'))
+    workbook.save(dst_path + '\\' + filename + '.xlsx')
 
-    workbook.save(PurePath(salary_file).with_name(filename).with_suffix('.xlsx'))
 
 
 
