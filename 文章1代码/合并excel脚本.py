@@ -6,7 +6,7 @@ from pathlib import Path, PurePath
 # 指定要合并excel的路径
 src_path = 'python_productivity\文章1代码\调查问卷'
 # 指定合并完成的路径
-dst_file = 'python_productivity\文章1代码\result\结果.xlsx'
+dst_file = 'python_productivity\文章1代码\调查问卷\合并结果\结果.xlsx'
 
 
 # 取得该目录下所有的xlsx格式文件
