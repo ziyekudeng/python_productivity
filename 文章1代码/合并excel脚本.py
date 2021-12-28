@@ -11,7 +11,13 @@ dst_file = 'python_productivity\文章1代码\调查问卷\合并结果\结果.x
 
 # 取得该目录下所有的xlsx格式文件
 p = Path(src_path)
-files = [x for x in p.iterdir() if PurePath(x).match('*.xlsx')]
+
+# 过滤结尾是xlsx的文件
+
+print(PurePath(x).match('*.xlsx') and "合并结果" not in PurePath(x))
+
+# 此处目录已进行调整
+files = [x for x in p.iterdir() if (PurePath(x).match('*.xlsx') and "合并结果" not in PurePath(x))]
 
 # 准备一个列表存放读取结果
 content = []
