@@ -1,4 +1,5 @@
-from pathlib import Path
+from os import replace
+from pathlib import Path, PurePath
 import docx
 
 
@@ -23,3 +24,14 @@ def merge_without_format(docx_files):
 
 # 调用函数
 merge_without_format(files)
+
+
+def generat_invitation():
+    doc =Document(invitation)
+    for para in doc.paragrahs:
+        for key,value in replace_content.items();
+            if key in para.text:
+                para.text = para.text.replace(key,value)
+
+    file_name=PurePath(invitation_path).with_name(replace_content['<姓名>'])
+    doc.save(file_name)

@@ -6,13 +6,13 @@ import datetime
 today=datetime.date.today().strftime('%Y-%m-%d')
 
 # 客户信息文件
-customer = '/Users/edz/Desktop/效率专栏/文章2/邀请函样例文件/客户信息.xlsx'
+customer = 'python_productivity\文章2代码\文章2代码\邀请函样例文件\样例文件\客户信息.xlsx'
 
 # 邀请函模版
-invitation = '/Users/edz/Desktop/效率专栏/文章2/邀请函样例文件/邀请函模版.docx'
+invitation = 'python_productivity\文章2代码\文章2代码\邀请函样例文件\样例文件\邀请函模版.docx'
 
 # 邀请函路径
-invitation_path = '/Users/edz/Desktop/效率专栏/文章2/邀请函样例文件/'
+invitation_path = 'python_productivity\文章2代码\文章2代码\邀请函样例文件\生成结果'
 
 # 替换内容
 replace_content = {
@@ -29,12 +29,16 @@ def generat_invitation():
     # 取出每一段
     for para in doc.paragraphs:
         for key, value in replace_content.items():
+            # 替换内容在取出的段落内容中
             if key in para.text:
                 # 逐个关键字进行替换
                 para.text = para.text.replace(key, value)
 
-    file_name = PurePath(invitation_path).with_name(replace_content['<姓名>']).with_suffix('.docx')
+    # print(PurePath(invitation_path))
+    # file_name = PurePath(invitation_path).with_name(replace_content['<姓名>']).with_suffix('.docx')
+    file_name = str(invitation_path) + str('\\') +str('邀请函-' + replace_content['<姓名>']) +str('.docx')
 
+    # print(file_name)
     doc.save(file_name)
 
 

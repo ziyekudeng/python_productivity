@@ -3,7 +3,10 @@ from docx import Document
 from pathlib import Path, PurePath
 
 # word文件所在路径
-word_files_path = '/Users/edz/Desktop/效率专栏/文章2/word样例文件'
+word_files_path = 'python_productivity\文章2代码\文章2代码\word样例文件'
+
+word_files_without_format_path = 'python_productivity\文章2代码\文章2代码\word样例文件\合并-只保留内容'
+word_files_format_path = 'python_productivity\文章2代码\文章2代码\word样例文件\合并-保留原有格式'
 
 # 取得该目录下所有的docx格式文件
 p = Path(word_files_path)
@@ -23,7 +26,7 @@ def merge_files(docx_files: list):
             # 合并内容到新的word文档
             doc.element.body.append(word_body)
 
-    doc.save(Path(word_files_path, 'new.docx'))
+    doc.save(Path(word_files_format_path, '绩效考核管理制度.docx'))
 
 def merge_without_format(docx_files: list):
     '''
@@ -43,9 +46,13 @@ def merge_without_format(docx_files: list):
             newpar.add_run(para.text)
 
     # 所有文件合并完成后在指定路径进行保存
-    doc.save(Path(word_files_path, 'new.docx'))
+    doc.save(Path(word_files_without_format_path, '绩效考核管理制度.docx'))
         
 
 # 调用函数
+# 1.只获取内容进行合并
 merge_without_format(files)
+
+# 2.保留文件原有格式进行合并
+merge_files(files)
 
