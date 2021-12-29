@@ -16,7 +16,7 @@ p = Path(src_path)
 
 print(PurePath(x).match('*.xlsx') and "合并结果" not in PurePath(x))
 
-# 此处目录已进行调整
+# 此处目录判断路径已进行调整
 files = [x for x in p.iterdir() if (PurePath(x).match('*.xlsx') and "合并结果" not in PurePath(x))]
 
 # 准备一个列表存放读取结果
