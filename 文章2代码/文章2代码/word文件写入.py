@@ -3,7 +3,7 @@ from docx.shared import RGBColor
 from pathlib import Path, PurePath
 
 # word文件所在路径
-word_files_path = '/Users/edz/Desktop/效率专栏/文章2/word样例文件'
+word_files_path = 'python_productivity\文章2代码\文章2代码\邀请函样例文件\样例文件'
 
 # 取得该目录下所有的docx格式文件
 p = Path(word_files_path)
@@ -33,4 +33,4 @@ def add_content_mode1(content):
 
 doc = Document()
 add_content_mode1(my_content)
-doc.save(Path(word_files_path, 'new2.docx'))
+doc.save(Path(word_files_path, '文字写入word .docx'))
