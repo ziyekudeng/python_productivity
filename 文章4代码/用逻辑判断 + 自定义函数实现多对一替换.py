@@ -1,3 +1,7 @@
+'''
+用逻辑判断 + 自定义函数替代 replace() 函数实现“多对一”替换
+'''
+
 def age_replace(age):
     if age > 0 and age <= 6:
         return "少年"

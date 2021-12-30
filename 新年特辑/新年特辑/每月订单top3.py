@@ -56,10 +56,14 @@ for file in files:
     # 排序并取出Top3
     # 通过sort函数排序取出Top3也可以实现
     #  这里我直接使用Counter函数
-    # print(total)
+    '''
+    Counter 包支持对列表和字典进行排序、数量统计、取前 n 个数的功能，非常强大。
+    '''
     sorted_total = Counter(total)
 
     # 清空本月统计数据
     total = defaultdict(int)
-
+    '''
+    在排序之后，提取前 N 个元素的问题，
+    '''
     print(sorted_total.most_common(3))

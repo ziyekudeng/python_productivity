@@ -1,5 +1,14 @@
+'''
+使用字典+自定义函数实现批量替换
+'''
+
 # 保存映射关系的函数,函数的主要功能是通过字典实现的
 def replace_city(city_name):
+    '''
+    {"abc":123, "aaa":456}["abc"] 
+    方括号中的字符串"abc"被称作字典的下标。通过下标，我们可以获得字典的值。
+    通过这一行代码，你可以取出直接使用字典的值，而不需要对字典进行声明，也不需要为字典再起一个变量名。
+    '''
     return {
         "GUANGDONG":"广东省",
         "HEBEI":"河北省",
@@ -8,8 +17,8 @@ def replace_city(city_name):
     }[city_name]
 
 # 根据映射关系实现批量循环
-def replace_multi(my_citys, replaced_string):
-    for pinyin_city in my_citys:
+def replace_multi(strings, replaced_string):
+    for pinyin_city in strings:
         replaced_string = replaced_string.replace(
             pinyin_city,replace_city(pinyin_city))
     return replaced_string
@@ -25,5 +34,3 @@ GUANGDONG，简称“粤”，中华人民共和国省级行政区，省会广�
 
 string2 = replace_multi(citys, string1)
 print(string2)
-
-{"abc":123, "aaa":456}["abc"]
