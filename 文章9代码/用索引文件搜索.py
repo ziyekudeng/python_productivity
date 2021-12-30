@@ -1,7 +1,7 @@
 import pathlib 
 import re
 
-keyword = "apple"
+keyword = "开发"
 
 # 获取索引文件路径
 current_path = pathlib.PurePath(__file__).parent

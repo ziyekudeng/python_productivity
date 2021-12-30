@@ -13,7 +13,7 @@ def read_dirs(ini_filename, section, arg):
     cf = configparser.ConfigParser()
 
     # 读取ini文件
-    cf.read(inifile)
+    cf.read(inifile,encoding='utf-8')
 
     # 读取work节 和 searchpath参数 
     return cf.get(section, arg).split(",")

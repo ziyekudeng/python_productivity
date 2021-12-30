@@ -10,7 +10,7 @@ def read_dirs(ini_filename, section, arg):
     inifile = current_path.joinpath(ini_filename)
 
     cf = configparser.ConfigParser()
-    cf.read(inifile)
+    cf.read(inifile,encoding='utf-8')
     return cf.get(section, arg).split(",")
 
 
