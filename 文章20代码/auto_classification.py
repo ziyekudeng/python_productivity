@@ -18,6 +18,7 @@ def write_to_q(path_to_write, q: Queue):
         else:
             q.put(f"{full_path}::{files}")
 
+
 # 移动文件到新的目录
 def move_to_newdir(filename_withext, file_in_path, type_to_newpath):
     # 取得文件的扩展名
@@ -33,11 +34,13 @@ def move_to_newdir(filename_withext, file_in_path, type_to_newpath):
 # 将队列的文件名分类并写入新的文件夹
 def classify_from_q(q: Queue, type_to_classify):
     while not q.empty():
+        # 从队列里取目录和文件名
         item = q.get()
 
         # 将路径和文件分开
         filepath, files = item.split("::")
-
+        
+        # 剔除文件名字符串出现的"[" "]",并用"，"做分隔转换为列表
         files = files.strip("[]").split(",")
         # 对每个文件进行处理
         for filename in files:
@@ -47,12 +50,15 @@ def classify_from_q(q: Queue, type_to_classify):
 
 if __name__ == "__main__":
     # 定义要对哪个目录进行文件扩展名分类
-    source_dir = "/Users/edz/Desktop/files"
+    source_dir = "python_productivity\文章20代码\样例文件"
 
     # 定义文件类型和它的扩展名
     file_type = {
+        "image": ("jpg", "png"),
         "music": ("mp3", "wav"),
         "movie": ("mp4", "rmvb", "rm", "avi"),
+        "rar": ("rar"),
+        "zip": ("zip"),
         "execute": ("exe", "bat")
     }
 
