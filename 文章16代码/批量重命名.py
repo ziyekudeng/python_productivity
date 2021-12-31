@@ -1,10 +1,12 @@
 import os
 # 保存图片的目录
-file_path = "/Users/edz/Desktop/pic"
+file_path = "python_productivity\文章16代码\样例图片"
 # 需要批量重命名的扩展名
 old_ext = ".jpg"
 # 取得指定文件夹下的文件列表
 old_names = os.listdir(file_path)
+
+print(f'取得指定文件夹下的文件列表：{old_names}')
 # 新文件名称从1开始
 new_name = 1
 
@@ -18,7 +20,7 @@ for old_name in old_names:
         old_path = os.path.join(file_path, old_name)
 
         # 新的文件名
-        new_path = os.path.join(file_path, str(new_name)+".txt")
+        new_path = os.path.join(file_path, str(new_name)+".png")
        
         # 重命名
         os.rename(old_path, new_path)
