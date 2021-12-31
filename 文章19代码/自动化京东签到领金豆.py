@@ -1,14 +1,15 @@
 from selenium import webdriver
 import time
 
-browser =  webdriver.Chrome()
+
+browser = webdriver.Edge()
 
 # 访问主页
 browser.get("http://www.jd.com")
 time.sleep(2)
 
 # 访问登陆页
-browser.get("https://passport.jd.com/new/login.aspx?ReturnUrl=https%3A%2F%2Fwww.jd.com%2F")
+browser.get(r'https://passport.jd.com/new/login.aspx?ReturnUrl=https%3A%2F%2Fwww.jd.com%2F')
 time.sleep(2)
 
 # 切换为用户密码登陆
@@ -29,7 +30,7 @@ browser.find_element_by_xpath('//div[@class="login-btn"]/a').click()
 time.sleep(2)
 
 # 访问签到页面
-browser.get("https://mall.jd.com/index-1000002826.html")
+browser.get(r"https://mall.jd.com/index-1000002826.html")
 time.sleep(2)
 
 # 签到并领金豆
