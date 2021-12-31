@@ -19,7 +19,8 @@ def getAllFiles(dir):
 def zipWithoutPassword(files,backupFilename):
     with ZipFile(backupFilename, 'w') as zf:
         for f in files:
-            zf.write(f)
+            f_path = os.path.join(os.getcwd(), f)
+            zf.write(f,f_path)
 
 def zipWithPassword(dir, backupFilename, password=None):
     cmd = f"7z.exe a -tzip {backupFilename} -p{password} {dir}"
@@ -28,7 +29,7 @@ def zipWithPassword(dir, backupFilename, password=None):
 
 if __name__ == '__main__':
     # 要备份的目录
-    backupDir = "/data"
+    backupDir = "python_productivity\文章27代码\压缩"
     # 要备份的文件
     backupFiles = getAllFiles(backupDir)
     # zip文件的名字“年月日.zip”
