@@ -1,3 +1,10 @@
+
+'''
+
+sorted(iterable, cmp=None, key=None, reverse=False)
+'''
+
+# sorted() 函数的默认排序是按照从小到大的顺序进行排序的
 sorted_list = sorted([30, 50, 20, 10, 40])
 print(sorted_list)
 # [10, 20, 30, 40, 50]
