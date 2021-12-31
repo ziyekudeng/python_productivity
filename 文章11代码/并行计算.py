@@ -14,10 +14,17 @@ def f(x):
     queue.put(os.getpid())
     return x*x
 
-with Pool(count) as p:
-    # 并行计算
-    res = p.map(f, range(1, 1001))
-    print(f'计算平方的结果是:{res}')
+'''
+windows下使用multiprocessing，要将进程池相关代码应该放在if __name__ == '__main__'下面，要不然运行会报错
+'''
+def test():
+    with Pool(count) as p:
+        # 并行计算
+        res = p.map(f, range(1, 1001))
+        print(f'计算平方的结果是:{res}')
+
+if __name__ == '__main__':
+    test()
 
 # 并行计算用到的进程id
 pids = set()
