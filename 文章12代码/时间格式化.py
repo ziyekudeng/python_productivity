@@ -8,6 +8,9 @@ date_demo = [
 
 for  dd in date_demo:
     # 拆分日期
+    '''
+    变量连续赋值
+    '''
     year, month, day = dd.split('-')
     # 调整格式
     if len(year)== 2 :
