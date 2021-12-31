@@ -1,7 +1,13 @@
 import sqlite3
 import pathlib
 
+'''
+“OptSqlite”继承了父类“object”
+'''
 class OptSqlite(object):
+    '''
+    内置的方法叫做“init”, 它叫做类的初始化方法，能实现类在执行的时候接收参数，还能为类预先执行变量赋值、初始化等，实现在类一运行就需要完成的工作
+    '''
     def __init__(self, dbname = "new.db"):
         """
         :param dbname  数据库名称
