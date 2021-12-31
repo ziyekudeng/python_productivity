@@ -3,8 +3,16 @@ import json
 from pyecharts.charts import Map
 from pyecharts import options as opts
 
+'''
+参考文档地址:
+https://gallery.pyecharts.org/#/README
+https://gallery.pyecharts.org/#/Line/temperature_change_line_chart
+'''
+
 url = 'https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5'
 data = requests.get(url)
+
+# 使用 json.loads() 方法把接口的数据转换成了字典
 alldata = json.loads(data.json()['data'])
 
 chinadata = []
