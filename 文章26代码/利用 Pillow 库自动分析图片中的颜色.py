@@ -1,14 +1,19 @@
 from PIL import Image
-# pip3 instlal pillow
+
+
+'''
+安装包 pip3 install pillow
+导入库 import PIL 
+'''
 
 # 打开图片文件
-image = Image.open("./文章26代码/sunrise.jpg")
+image = Image.open("python_productivity\文章26代码\sunrise.jpg")
 
 # 模式“P”为8位彩色图像，每个像素用8个bit表示
 image_p = image.convert(
     "P", palette=Image.ADAPTIVE
     )  
-# image_p.show()
+image_p.show()
 
 # 以列表形式返回图像调色板,目标需先转换为P模式，才具有调色板属性，否则得到的调色板为None
 palette = image_p.getpalette()
@@ -28,6 +33,8 @@ print(colors)
 for i, val in enumerate(colors):
     image.paste(val,(0+i*120, 0 ,100+i*120, 100))
 
-image.save("./文章26代码/sunrise2.png")
+# 保存成jpg时执行
+# image.convert('RGB')
+image.save("python_productivity\文章26代码\sunrise2.png")
 image.show()
 
